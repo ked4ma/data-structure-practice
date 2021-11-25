@@ -1,11 +1,14 @@
-package chap1;
+package practice.chap1;
 
-public class Q1_1J {
+public class Ch1Q1J {
+    private Ch1Q1J() {
+    }
+
     // need to ask char code.
     // this method expect it is ascii.
     // exec order: O(n)
     // mem order : O(1) = O(128)
-    public boolean isUniqueChars(String str) {
+    public static boolean isUniqueChars(String str) {
         if (str.length() > 128) return false;
 
         boolean[] charSet = new boolean[128];
@@ -19,7 +22,7 @@ public class Q1_1J {
         return true;
     }
 
-    public boolean isUniqueCharsWithoutOtherDataStructure(String str) {
+    public static boolean isUniqueCharsWithoutOtherDataStructure(String str) {
         if (str.length() > 128) return false;
 
         for (int i = 0; i < str.length(); i++) {

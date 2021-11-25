@@ -1,6 +1,6 @@
-package chap1
+package practice.chap1
 
-class Q1_1Kt {
+object Ch1Q1Kt {
     fun isUniqueChars(str: String): Boolean {
         if (str.length > 128) return false
 
