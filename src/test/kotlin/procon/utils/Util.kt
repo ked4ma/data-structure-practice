@@ -7,8 +7,9 @@ import java.util.stream.Collectors
 internal class Reader(fileName: String) : Closeable {
     private val input = File(fileName).bufferedReader()
     fun next() = input.readLine().trim()
+    fun nextList(separator: String = " ") = next().split(separator)
     fun nextInt() = next().toInt()
-    fun nextIntList(separator: String = " ") = next().split(separator).map(String::toInt)
+    fun nextIntList(separator: String = " ") = nextList(separator).map(String::toInt)
 
     fun lines(): List<String> = input.lines().collect(Collectors.toList())
 
