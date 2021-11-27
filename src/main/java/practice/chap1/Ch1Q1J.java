@@ -1,10 +1,12 @@
-package chap1;
+package practice.chap1;
 
-public class Q1_1J {
+public class Ch1Q1J implements Ch1Q1{
+
     // need to ask char code.
     // this method expect it is ascii.
     // exec order: O(n)
     // mem order : O(1) = O(128)
+    @Override
     public boolean isUniqueChars(String str) {
         if (str.length() > 128) return false;
 
@@ -19,6 +21,7 @@ public class Q1_1J {
         return true;
     }
 
+    @Override
     public boolean isUniqueCharsWithoutOtherDataStructure(String str) {
         if (str.length() > 128) return false;
 
