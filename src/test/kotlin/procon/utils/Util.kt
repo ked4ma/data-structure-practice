@@ -1,7 +1,7 @@
 package procon.utils
 
-import java.io.Closeable
-import java.io.File
+import procon.utils.Reader
+import java.io.*
 import java.util.stream.Collectors
 
 internal class Reader(fileName: String) : Closeable {
@@ -22,9 +22,25 @@ internal inline fun read(
     question: String,
     readInputOperation: (Reader) -> Unit
 ) {
+    val out = System.out
+    val testOut = TestPrintStream()
+    System.setOut(testOut)
     Reader("src/test/resources/$question-input.txt").use(readInputOperation)
+    System.setOut(out)
     Reader("src/test/resources/$question-output.txt").use {
-        println("==========")
-        it.lines().forEach(::println)
+        val actual = testOut.read()
+        val expected = it.lines().joinToString(separator = "\n")
+        assert(actual == expected) {
+            listOf("[actual]", actual, "must be [expected]", expected).joinToString("\n")
+        }
+    }
+    testOut.close()
+}
+
+internal class TestPrintStream : PrintStream(ByteArrayOutputStream()) {
+    fun read(): String {
+        val s = out.toString()
+        (out as ByteArrayOutputStream).reset()
+        return s.replace(Regex("\n$"), "")
     }
 }

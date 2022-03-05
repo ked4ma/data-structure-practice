@@ -16,7 +16,7 @@ object Ch5Q3 {
             val mid = (left + right) / 2
             if (A[mid] == key) {
                 return mid
-            } else if (A[mid] < key) {
+            } else if (key < A[mid]) {
                 right = mid
             } else {
                 left = mid + 1

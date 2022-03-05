@@ -30,4 +30,8 @@ object Ch6Q3 {
         println(nt)
         koch(n - 1, nt, t)
     }
+
+    private fun println(data: Pair<Double, Double>) {
+        println("%.08f %.08f".format(data.first, data.second))
+    }
 }
