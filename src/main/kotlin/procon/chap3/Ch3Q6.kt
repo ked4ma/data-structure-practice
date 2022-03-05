@@ -3,8 +3,8 @@ package procon.chap3
 object Ch3Q6 {
     fun shellSort(A: IntArray, N: Int) {
         var count = 0
-        val gList = genG(N)
-        for (g in gList.asReversed()) {
+        val gList = genG(N).asReversed()
+        for (g in gList) {
             count += insertionSort(A, N, g)
         }
         println(gList.size)

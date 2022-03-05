@@ -10,10 +10,11 @@ internal class Ch7Q2Test {
             it.nextInt()
             val arr = it.nextIntList().toIntArray()
             val q = Ch7Q2.partition(arr)
-            arr.forEachIndexed { index, n ->
-                print(if (index == q) "[$n] " else "$n ")
-            }
-            println("")
+            println(buildList {
+                arr.forEachIndexed { index, n ->
+                    add(if (index == q) "[$n]" else "$n")
+                }
+            }.joinToString(separator = " "))
         }
     }
 }

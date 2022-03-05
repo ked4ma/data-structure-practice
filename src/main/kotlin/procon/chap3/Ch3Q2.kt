@@ -2,6 +2,7 @@ package procon.chap3
 
 object Ch3Q2 {
     fun insertionSort(A: IntArray, N: Int) {
+        trace(A)
         for (i in 1 until N) {
             val v = A[i]
             var j = i - 1

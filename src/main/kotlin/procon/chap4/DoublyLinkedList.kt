@@ -40,10 +40,12 @@ class DoublyLinkedList {
 
     fun print() {
         var node = NIL.next
-        while (node != NIL) {
-            print("${node.key} ")
-            node = node.next
+        val list: List<Int> = buildList {
+            while (node != NIL) {
+                add(node.key)
+                node = node.next
+            }
         }
-        println()
+        println(list.joinToString(" "))
     }
 }

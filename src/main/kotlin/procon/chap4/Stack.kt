@@ -1,14 +1,12 @@
 package procon.chap4
 
-import kotlin.RuntimeException
-
 class Stack<T>(size: Int) {
     private val arr = arrayOfNulls<Any>(size)
     private var top = -1
 
     fun isEmpty() = top < 0
 
-    fun isFull() = top == arr.size
+    fun isFull() = top + 1 == arr.size
 
     fun push(v: T) {
         if (isFull()) throw RuntimeException("Cannot push value. (Stack is full)")
